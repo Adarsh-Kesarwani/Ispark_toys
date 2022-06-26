@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        body{
+            background-color:white;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .col-2{
+            flex: 2;
+            min-width:280px;
+        }
+        .col-1{
+            flex: 1;
+            min-width:280px;
+        }
+        .col-2 img{
+            width: 100%;
+            
+        }
+        .productDes{
+            padding: 10px;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+        }
+        .action{
+            margin-top: 14px;
+            padding: 20px;
+        }
+        .action button{
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: red;
+            border:1px solid red;
+            color:white;
+        }
+        .inerrAction{
+            padding: 20px;
+            border: 1px solid white;
+            background-color: white;
+        }
+        .counter{
+          background-color: red;
+          padding: 5px;
+          border-radius: 50%;
+          font-size: 18px;
+          color: white;
+      }
+    </style>
+</head>
+<body>
+  
+</body>
+<script>
+ 
+    const navHolder=document.createElement('div');
+      document.body.appendChild(navHolder);
+      navHolder.innerHTML=`
+         <div class="nav">
+          <div class="brand">
+           <a href="product.html">
+           <img src="http://www.littleblessingsbakery.com/wp-content/uploads/2018/12/BlessingRoundLogo-transparent.png" />
+           </a>
+           <a href="product.html">
+           <h3>
+            Sprinkles Bakery
+           </h3>
+           </a>
+         </div>
+      <div class="menu-item">
+        <a href="cart.html">Cart <span class="counter">0</span></a>
+        <a href="signin.html">SignIn</a>
+      </div>
+      </div> `;
+    const productList=[
+    {
+      name:"Vanila cake",
+      price:2500,
+      id:0,// please start id from zero 
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT20hqK54jbcLze6Zt47dImB4iurw8iaIZImw&usqp=CAU",
+      des:"Buttery vanilla cake filled with banana pudding, iced with whipped cream and vanilla wafer crumble"
+    },
+    {
+      name:"Oreo Cake",
+      price:3500,
+      id:1,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMd4icO3shgWNYTh1FKihdrIwuIs4V7JlKmQ&usqp=CAU",
+      des:"Sweet almond cake with a mixed berry filling and iced with a cream cheese buttercream"
+    },
+    {
+      name:"Black Forest",
+      price:6000,
+      id:2,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMnuCnpPDJxg58LGQiOZtIHuwNLeOEZIw7Sg&usqp=CAU",
+      des:"Vanilla cake with cream filling iced with a whipped chocolate ganache"
+    },   {
+      name:"Bubbly Cake",
+      price:5000,
+      id:3,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnGUx3qU8dX4CFqPR5KP6lyVAyMUpR3e21zA&usqp=CAU",
+      des:"Butterscotch rum cake iced with butterscotch buttercream and a cream soda drizzle"
+    },
+    {
+      name:"Choko Gems Cake",
+      price:4500,
+      id:4,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnrhHp5RYUbmMID95QIiNKvOBrJ2aQPYeWbQ&usqp=CAU",
+      des:"Almond cake iced with a white chocolate ganache and slivered almond garnish"
+    },
+    {
+      name:"Fancy Cake",
+      price:5000,
+      id:5,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv3Uh4X_k-vLuYCXdNc0nkLVTTm4RTwIAkuw&usqp=CAU",
+      des:"Rich dark chocolate cake iced with peanut butter buttercream and topped with a peanut butter cup"
+    },
+    {
+      name:" Cherry Cake",
+      price:3000,
+      id:6,
+      img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuE4mM6Ft2T60YJNdHgdtTbF7tN2WX6TFftg&usqp=CAU",
+      des:"Oreo cake iced with vanilla buttercream and topped with an oreo cookie"
+    },
+  ]
+    const idString=document.location.search;
+    const id=Number(idString[4]);
+    const product=productList[id];
+
+    const productHolder=document.createElement('div');
+          document.body.appendChild(productHolder);
+          productHolder.innerHTML=`
+          <div class="container">
+       <div class="col-2">
+        <img src=${product.img} />
+       </div>
+       <div class="col-1" >
+           <div class="productDes">
+               <h2>${product.name}</h2>
+               <div class="row">
+                   <span>Price :</span>
+                   <span>&#8377; ${product.price}</span>
+               </div>
+               <div class="row">
+                <span>Brand :</span>
+                <span>Peter England</span>
+            </div>
+               <p>Des:- ${product.des}</p>
+           </div>
+       </div>
+       <div class="col-1">
+           <div class="action">
+               <div class="inerrAction">
+                <div class="row">
+                    <span>Price :</span>
+                    <span>&#8377; ${product.price}</span>
+                </div>
+                <div class="row">
+                    <span>Qty :</span>
+                    <span>
+                      <select onchange="handleChange(this)">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                     <option value="5">5</option>
+                    </select>
+                    </span>
+                </div>
+                <a href="cart.html">
+                <button onclick="addToCart()">
+                   Add to cart
+                 </button>
+                </a>
+               </div>
+           </div>
+       </div>
+   </div>
+          `;
+    let qty=1;
+   function handleChange(e){
+      qty=e.value;
+   }
+   let cartItem=localStorage.getItem("cartItem")?JSON.parse(localStorage.getItem("cartItem")):[];
+   function addToCart(){
+         cartItem=cartItem.filter(item=>item.id!=product.id)
+         localStorage.setItem("cartItem",JSON.stringify([{...product,qty},...cartItem]));
+   }
+          const footerHolder=document.createElement('div');
+              document.body.appendChild(footerHolder);
+              footerHolder.innerHTML=`
+               <div class="footer" style="background-color: whitesmoke;padding: 10px;">
+              <p style="text-align: center;">all copy right resversed with <a href="/">Sprinkles Bakery</a></p>
+              </div>
+              `;
+              const counter=document.querySelector('.counter');
+              counter.innerHTML=cartItem.length;
+</script>
+</html>

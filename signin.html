@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        body{
+            background-color: white;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col1{
+            flex: 1;
+            min-width: 280px;
+        }
+        .col2{
+            flex: 2;
+            min-width: 280px;
+            display: flex;
+            justify-content: center;
+            height: 90vh;
+            align-items: center;
+        }
+       
+        .formContainer form{
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+        form input{
+            padding: 7px 20px;
+        }
+        form label{
+            margin: 10px 0;
+        }
+        form{
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 5px 5px 9px;
+        }
+        form button{
+            margin: 10px 0;
+            padding:8px 10px;
+            background-color: red;
+            border: 1px solid red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const navHolder=document.createElement('div');
+      document.body.appendChild(navHolder);
+      navHolder.innerHTML=`
+         <div class="nav">
+          <div class="brand">
+           <a href="product.html">
+           <img src="http://www.littleblessingsbakery.com/wp-content/uploads/2018/12/BlessingRoundLogo-transparent.png" />
+           </a>
+           <a href="product.html">
+           <h3>
+            Sprinkles Bakery
+           </h3>
+           </a>
+         </div>
+
+      <div class="menu-item">
+        <a href="cart.html">Cart <span class="counter">0</span></a>
+        <a href="signin.html">SignIn</a>
+      </div>
+      </div> `;
+    </script>
+    <div class="container">
+       
+        <div class="col2">
+            <div class="formContainer">
+                 <form>
+                    <h2 style="text-align: center;">SignIn</h2>
+                     <label>Email</label>
+                     <input type="email" name="eamil" required placeholder="Eamil"/>
+                     <label>Password</label>
+                     <input type="password" name="password" required placeholder="Password"/>
+                     <button>SignIn</button>
+                     <p>New Customer ? <a href="register.html">Create account</a></p>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+
+</body>
+<script>
+     const footerHolder=document.createElement('div');
+              document.body.appendChild(footerHolder);
+              footerHolder.innerHTML=`
+               <div class="footer" style="background-color: whitesmoke;padding: 10px;">
+              <p style="text-align: center;">all copy right resversed with <a href="#">Sprinkles Bakery</a></p>
+              </div>
+              `;
+              let cartItem=localStorage.getItem("cartItem")?JSON.parse(localStorage.getItem("cartItem")):[];
+              const counter=document.querySelector('.counter');
+              counter.innerHTML=cartItem.length;
+</script>
+</html>
